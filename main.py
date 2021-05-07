@@ -142,6 +142,7 @@ class wallpaperCut():
     # Function for showing final output
     def show(self):
         
+        print("Here's the output! Press Esc to close the process, this output will be saved in the same directory as an image. \n")
         cv.namedWindow('Output', cv.WINDOW_KEEPRATIO)
         cv.imshow('Output', self.final)
         cv.resizeWindow('Output', 1366, 768)
@@ -170,7 +171,7 @@ class wallpaperCut():
             cv.rectangle(self.input, (self.ix, self.iy), (x, y), self.BLUE, 4)
             self.rect = (min(self.ix, x), min(self.iy, y), abs(self.ix - x), abs(self.iy - y))
             self.rect_or_mask = 0
-            print(" Now press the key 'z' to run GrabCut. \n")
+            print("Now press the key 'z' to run GrabCut. \n")
 
         # draw touchup curves
         if event == cv.EVENT_LBUTTONDOWN:
@@ -214,10 +215,10 @@ class wallpaperCut():
             if k == 27:         # esc to exit
                 break
             elif k == ord('q'): # BG drawing
-                print(" mark background regions with left mouse button \n")
+                print("Mark background regions with left mouse button. \n")
                 self.value = self.DRAW_BG
             elif k == ord('w'): # FG drawing
-                print(" mark foreground regions with left mouse button \n")
+                print("Mark foreground regions with left mouse button. \n")
                 self.value = self.DRAW_FG
             elif k == ord('m'): # reset everything
                 print("Resetting the canvas... \n")
